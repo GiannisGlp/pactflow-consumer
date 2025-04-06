@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - test
   pull_request:
 
 jobs:
@@ -42,12 +43,13 @@ jobs:
           PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
           PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
         run: |
+          BRANCH_NAME=${{ github.head_ref || github.ref_name }}
           docker run --rm \
             -v $PWD:$PWD \
             -w $PWD \
             -e PACT_BROKER_BASE_URL=$PACT_BROKER_BASE_URL \
             -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
-            pactfoundation/pact-cli:latest publish build/pacts --consumer-app-version $GITHUB_SHA --branch ${{ github.ref_name }}
+            pactfoundation/pact-cli:latest publish build/pacts --consumer-app-version $GITHUB_SHA --branch $BRANCH_NAME
 
   can-i-deploy:
     name: Can I Deploy
