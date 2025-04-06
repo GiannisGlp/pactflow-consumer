@@ -1,10 +1,12 @@
 name: CI Pipeline
 
 on:
-  push:
+ pull_request:
     branches:
       - main
-  pull_request:
+ push:
+    branches:
+      - main
 
 jobs:
   test-and-publish:
@@ -20,7 +22,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: 11
+          java-version: 17
+          distribution: temurin
 
       # Cache Gradle dependencies
       - name: Cache Gradle dependencies
@@ -41,12 +44,13 @@ jobs:
           PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
           PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
         run: |
+          BRANCH_NAME=${{ github.head_ref || github.ref_name }}
           docker run --rm \
             -v $PWD:$PWD \
             -w $PWD \
             -e PACT_BROKER_BASE_URL=$PACT_BROKER_BASE_URL \
             -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
-            pactfoundation/pact-cli:latest publish build/pacts --consumer-app-version $GITHUB_SHA --branch ${{ github.ref_name }}
+            pactfoundation/pact-cli:latest publish build/pacts --consumer-app-version $GITHUB_SHA --branch $BRANCH_NAME
 
   can-i-deploy:
     name: Can I Deploy
@@ -83,6 +87,15 @@ jobs:
       # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
+
+    # Debug Record Deployment
+      - name: Debug Record Deployment
+        run: |
+         echo "PACT_BROKER_BASE_URL=${{ secrets.PACT_BROKER_BASE_URL }}"
+         echo "PACT_BROKER_TOKEN is set"
+         echo "PACTICIPANT=pactflow-consumer"
+         echo "VERSION=$GITHUB_SHA"
+         echo "ENVIRONMENT=production"
 
       # Record deployment in Pact Broker
       - name: Record Deployment
