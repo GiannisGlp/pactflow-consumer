@@ -1,10 +1,10 @@
 name: CI Pipeline
 
 on:
-  pull_request:
+ pull_request:
     branches:
       - main
-  push:
+ push:
     branches:
       - main
 
@@ -87,6 +87,15 @@ jobs:
       # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
+
+    # Debug Record Deployment
+      - name: Debug Record Deployment
+        run: |
+         echo "PACT_BROKER_BASE_URL=${{ secrets.PACT_BROKER_BASE_URL }}"
+         echo "PACT_BROKER_TOKEN is set"
+         echo "PACTICIPANT=pactflow-consumer"
+         echo "VERSION=$GITHUB_SHA"
+         echo "ENVIRONMENT=production"
 
       # Record deployment in Pact Broker
       - name: Record Deployment
