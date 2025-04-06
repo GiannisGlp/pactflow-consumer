@@ -1,0 +1,101 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test-and-publish:
+    name: Test and Publish Pact
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Java (for Gradle)
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+
+      # Cache Gradle dependencies
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # Run tests and generate Pact contract
+      - name: Run tests
+        run: ./gradlew clean test
+
+      # Publish Pact to Pact Broker
+      - name: Publish Pact to Pact Broker
+        env:
+          PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
+          PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
+        run: |
+          docker run --rm \
+            -v $PWD:$PWD \
+            -w $PWD \
+            -e PACT_BROKER_BASE_URL=$PACT_BROKER_BASE_URL \
+            -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
+            pactfoundation/pact-cli:latest publish build/pacts --consumer-app-version $GITHUB_SHA --branch ${{ github.ref_name }}
+
+  can-i-deploy:
+    name: Can I Deploy
+    needs: test-and-publish
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Check if the consumer can be deployed
+      - name: Can I Deploy
+        env:
+          PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
+          PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
+        run: |
+          docker run --rm \
+            -v $PWD:$PWD \
+            -w $PWD \
+            -e PACT_BROKER_BASE_URL=$PACT_BROKER_BASE_URL \
+            -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
+            pactfoundation/pact-cli:latest broker can-i-deploy \
+            --pacticipant pactflow-consumer \
+            --version $GITHUB_SHA \
+            --to-environment production
+
+  record-deployment:
+    name: Record Deployment
+    needs: can-i-deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Record deployment in Pact Broker
+      - name: Record Deployment
+        env:
+          PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
+          PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
+        run: |
+          docker run --rm \
+            -v $PWD:$PWD \
+            -w $PWD \
+            -e PACT_BROKER_BASE_URL=$PACT_BROKER_BASE_URL \
+            -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
+            pactfoundation/pact-cli:latest broker record-deployment \
+            --pacticipant pactflow-consumer \
+            --version $GITHUB_SHA \
+            --environment production

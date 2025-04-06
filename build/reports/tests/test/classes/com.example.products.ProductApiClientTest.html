@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ProductApiClientTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ProductApiClientTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.products.html">com.example.products</a> &gt; ProductApiClientTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.763s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+<li>
+<a href="#">Standard error</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">createProduct()</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">createProductInvalidData()</td>
+<td class="success">0.705s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getProduct()</td>
+<td class="success">0.028s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getProductInvalidId()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getProductNotFound()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getProducts()</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+14:56:13.260 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.products.ProductApiClientTest]: ProductApiClientTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:56:13.338 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.products.Application for test class com.example.products.ProductApiClientTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.3)
+
+2025-04-06T14:56:13.566+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:13.584+03:00  INFO 82890 --- [    Test worker] c.m.w.spring.WireMockContextCustomizer   : Configuring WireMockServer with name 'wiremock-service-name' on port: 0
+2025-04-06T14:56:13.996+03:00  INFO 82890 --- [    Test worker] c.m.w.spring.WireMockContextCustomizer   : Started WireMockServer with name 'wiremock-service-name':http://localhost:56634
+2025-04-06T14:56:13.996+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:14.025+03:00  INFO 82890 --- [    Test worker] c.example.products.ProductApiClientTest  : Starting ProductApiClientTest using Java 23.0.2 with PID 82890 (started by vanonatobaidze in /Users/vanonatobaidze/projects/pactflow/pactflow-consumer)
+2025-04-06T14:56:14.025+03:00  INFO 82890 --- [    Test worker] c.example.products.ProductApiClientTest  : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-04-06T14:56:14.875+03:00  INFO 82890 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-04-06T14:56:14.875+03:00  INFO 82890 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-04-06T14:56:14.876+03:00  INFO 82890 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2025-04-06T14:56:14.892+03:00  INFO 82890 --- [    Test worker] c.example.products.ProductApiClientTest  : Started ProductApiClientTest in 1.474 seconds (process running for 2.248)
+2025-04-06T14:56:14.901+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:14.902+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.588+03:00  INFO 82890 --- [qtp395257482-44] WireMock                                 : Request received:
+127.0.0.1 - POST /products
+
+Accept: [application/json]
+Content-Length: [41]
+Content-Type: [application/json; charset=UTF-8]
+Host: [localhost:56634]
+Connection: [keep-alive]
+User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
+Accept-Encoding: [gzip,deflate]
+{&quot;id&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;&quot;,&quot;price&quot;:0.0}
+
+
+Matched response definition:
+{
+  &quot;status&quot; : 400,
+  &quot;headers&quot; : {
+    &quot;Content-Type&quot; : &quot;application/json&quot;
+  }
+}
+
+Response:
+HTTP/1.1 400
+Content-Type: [application/json]
+Matched-Stub-Id: [eede4978-5583-4b52-bfd3-d8beb8405e71]
+
+2025-04-06T14:56:15.608+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.609+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.613+03:00  INFO 82890 --- [qtp395257482-38] WireMock                                 : Request received:
+127.0.0.1 - GET /product/10
+
+Accept: [application/json]
+Host: [localhost:56634]
+Connection: [keep-alive]
+User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
+Accept-Encoding: [gzip,deflate]
+
+
+
+Matched response definition:
+{
+  &quot;status&quot; : 200,
+  &quot;body&quot; : &quot;{ \&quot;id\&quot;: \&quot;10\&quot;, \&quot;name\&quot;: \&quot;pizza\&quot;, \&quot;type\&quot;: \&quot;food\&quot;, \&quot;price\&quot;: 100.0 }&quot;,
+  &quot;headers&quot; : {
+    &quot;Content-Type&quot; : &quot;application/json&quot;
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Matched-Stub-Id: [4aa69f39-19b6-4e96-8afd-21b62e53ebea]
+
+2025-04-06T14:56:15.636+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.637+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.640+03:00  INFO 82890 --- [qtp395257482-43] WireMock                                 : Request received:
+127.0.0.1 - GET /product/invalid-id
+
+Accept: [application/json]
+Host: [localhost:56634]
+Connection: [keep-alive]
+User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
+Accept-Encoding: [gzip,deflate]
+
+
+
+Matched response definition:
+{
+  &quot;status&quot; : 400,
+  &quot;headers&quot; : {
+    &quot;Content-Type&quot; : &quot;application/json&quot;
+  }
+}
+
+Response:
+HTTP/1.1 400
+Content-Type: [application/json]
+Matched-Stub-Id: [8be2fc0e-e31f-43eb-9459-a7c23775c295]
+
+2025-04-06T14:56:15.643+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.644+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.646+03:00  INFO 82890 --- [qtp395257482-42] WireMock                                 : Request received:
+127.0.0.1 - GET /products
+
+Accept: [application/json]
+Host: [localhost:56634]
+Connection: [keep-alive]
+User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
+Accept-Encoding: [gzip,deflate]
+
+
+
+Matched response definition:
+{
+  &quot;status&quot; : 200,
+  &quot;body&quot; : &quot;[{ \&quot;id\&quot;: \&quot;10\&quot;, \&quot;name\&quot;: \&quot;pizza\&quot;, \&quot;type\&quot;: \&quot;food\&quot;, \&quot;price\&quot;: 100.0 }]&quot;,
+  &quot;headers&quot; : {
+    &quot;Content-Type&quot; : &quot;application/json&quot;
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Matched-Stub-Id: [897efd01-84a9-40d4-992a-ccbab2ebbbd6]
+
+2025-04-06T14:56:15.652+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.653+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.656+03:00  INFO 82890 --- [qtp395257482-43] WireMock                                 : Request received:
+127.0.0.1 - GET /product/999
+
+Accept: [application/json]
+Host: [localhost:56634]
+Connection: [keep-alive]
+User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
+Accept-Encoding: [gzip,deflate]
+
+
+
+Matched response definition:
+{
+  &quot;status&quot; : 404,
+  &quot;headers&quot; : {
+    &quot;Content-Type&quot; : &quot;application/json&quot;
+  }
+}
+
+Response:
+HTTP/1.1 404
+Content-Type: [application/json]
+Matched-Stub-Id: [e437b7fb-7b48-4d0b-92e9-d6e969753a62]
+
+2025-04-06T14:56:15.659+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.660+03:00  INFO 82890 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-06T14:56:15.666+03:00  INFO 82890 --- [qtp395257482-42] WireMock                                 : Request received:
+127.0.0.1 - POST /products
+
+Accept: [application/json]
+Content-Length: [53]
+Content-Type: [application/json; charset=UTF-8]
+Host: [localhost:56634]
+Connection: [keep-alive]
+User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
+Accept-Encoding: [gzip,deflate]
+{&quot;id&quot;:&quot;27&quot;,&quot;name&quot;:&quot;pizza&quot;,&quot;type&quot;:&quot;food&quot;,&quot;price&quot;:27.0}
+
+
+Matched response definition:
+{
+  &quot;status&quot; : 200,
+  &quot;body&quot; : &quot;{ \&quot;id\&quot;: \&quot;27\&quot;, \&quot;name\&quot;: \&quot;pizza\&quot;, \&quot;type\&quot;: \&quot;food\&quot;, \&quot;price\&quot;: 27.0 }&quot;,
+  &quot;headers&quot; : {
+    &quot;Content-Type&quot; : &quot;application/json&quot;
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Matched-Stub-Id: [94ae598d-95a8-4e2a-93af-8295ce753573]
+
+</pre>
+</span>
+</div>
+<div class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Apr 06, 2025 2:56:13 PM se.bjurr.wiremockpact.wiremockpactlib.api.WireMockPactApi clearAllSaved
+INFO: Clearing PACT JSON in /Users/vanonatobaidze/projects/pactflow/pactflow-consumer/build/pacts
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/Users/vanonatobaidze/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.15.11/a38b16385e867f59a641330f0362ebe742788ed8/byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.13</a> at Apr 6, 2025, 2:56:16 PM</p>
+</div>
+</div>
+</body>
+</html>

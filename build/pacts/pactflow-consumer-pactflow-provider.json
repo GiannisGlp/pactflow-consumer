@@ -1,0 +1,259 @@
+{
+  "consumer": {
+    "name": "pactflow-consumer"
+  },
+  "interactions": [
+    {
+      "description": "GET /product/10 -> 200",
+      "key": "b2999ec7",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": ""
+        },
+        "headers": {
+          "Accept": [
+            "application/json"
+          ],
+          "Accept-Encoding": [
+            "gzip,deflate"
+          ]
+        },
+        "method": "GET",
+        "path": "/product/10"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "id": "10",
+            "name": "pizza",
+            "price": 100.0,
+            "type": "food"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "GET /product/999 -> 404",
+      "key": "cd4bb219",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": ""
+        },
+        "headers": {
+          "Accept": [
+            "application/json"
+          ],
+          "Accept-Encoding": [
+            "gzip,deflate"
+          ]
+        },
+        "method": "GET",
+        "path": "/product/999"
+      },
+      "response": {
+        "body": {
+          "content": ""
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 404
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "GET /product/invalid-id -> 400",
+      "key": "d0bcb557",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": ""
+        },
+        "headers": {
+          "Accept": [
+            "application/json"
+          ],
+          "Accept-Encoding": [
+            "gzip,deflate"
+          ]
+        },
+        "method": "GET",
+        "path": "/product/invalid-id"
+      },
+      "response": {
+        "body": {
+          "content": ""
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 400
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "GET /products -> 200",
+      "key": "15932590",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": ""
+        },
+        "headers": {
+          "Accept": [
+            "application/json"
+          ],
+          "Accept-Encoding": [
+            "gzip,deflate"
+          ]
+        },
+        "method": "GET",
+        "path": "/products"
+      },
+      "response": {
+        "body": {
+          "content": [
+            {
+              "id": "10",
+              "name": "pizza",
+              "price": 100.0,
+              "type": "food"
+            }
+          ],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "POST /products -> 200",
+      "key": "bb7f8fc2",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "id": "27",
+            "name": "pizza",
+            "price": 27.0,
+            "type": "food"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Accept": [
+            "application/json"
+          ],
+          "Accept-Encoding": [
+            "gzip,deflate"
+          ],
+          "Content-Length": [
+            "53"
+          ],
+          "Content-Type": [
+            "application/json; charset=UTF-8"
+          ]
+        },
+        "method": "POST",
+        "path": "/products"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "id": "27",
+            "name": "pizza",
+            "price": 27.0,
+            "type": "food"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "POST /products -> 400",
+      "key": "bb7fe258",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "id": "",
+            "name": "",
+            "price": 0.0,
+            "type": ""
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Accept": [
+            "application/json"
+          ],
+          "Accept-Encoding": [
+            "gzip,deflate"
+          ],
+          "Content-Length": [
+            "41"
+          ],
+          "Content-Type": [
+            "application/json; charset=UTF-8"
+          ]
+        },
+        "method": "POST",
+        "path": "/products"
+      },
+      "response": {
+        "body": {
+          "content": ""
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 400
+      },
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.6.9"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    }
+  },
+  "provider": {
+    "name": "pactflow-provider"
+  }
+}
