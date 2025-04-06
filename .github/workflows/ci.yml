@@ -1,11 +1,12 @@
 name: CI Pipeline
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
-      - test
-  pull_request:
 
 jobs:
   test-and-publish:
