@@ -77,7 +77,7 @@ jobs:
             -w $PWD \
             -e PACT_BROKER_BASE_URL=$PACT_BROKER_BASE_URL \
             -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
-            pactfoundation/pact-cli:latest broker delete-version-tag \
+            pactfoundation/pact-cli:latest broker delete-branch \
             --pacticipant pactflow-consumer \
             --version $GITHUB_SHA \
             --tag $BRANCH_NAME
