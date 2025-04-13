@@ -71,7 +71,7 @@ jobs:
           PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
         run: |
           # Extract the incoming branch name from the pull request event
-          INCOMING_BRANCH=$(jq -r '.pull_request.head.ref' < "${GITHUB_EVENT_PATH}")
+          INCOMING_BRANCH=${{ needs.capture-incoming-branch.outputs.incoming-branch }}
           echo "Deleting incoming branch on PactFlow: $INCOMING_BRANCH"
           docker run --rm \
             -v $PWD:$PWD \
