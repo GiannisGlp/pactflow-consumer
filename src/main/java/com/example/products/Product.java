@@ -7,6 +7,7 @@ class Product {
 	private Double price;
 
 	Product() {
+
 	}
 
 	Product(final String id, final String name, final String type, final Double price) {
