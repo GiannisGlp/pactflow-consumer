@@ -55,8 +55,7 @@ jobs:
             pactfoundation/pact-cli:latest publish build/pacts --consumer-app-version $GITHUB_SHA --branch $BRANCH_NAME
 
   delete-pactflow-branch:
-    name: Delete PactFlow Branch
-    needs: test-and-publish
+    name: Delete Incoming PactFlow Branch
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') }}
 
@@ -65,13 +64,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Delete PactFlow branch
-      - name: Delete PactFlow Branch
+      # Extract and delete the incoming branch
+      - name: Delete Incoming PactFlow Branch
         env:
           PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
           PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
         run: |
-          BRANCH_NAME=${{ github.head_ref || github.ref_name }}
+          # Extract the incoming branch name from the pull request event
+          INCOMING_BRANCH=$(jq -r '.pull_request.head.ref' < "${GITHUB_EVENT_PATH}")
+          echo "Deleting incoming branch on PactFlow: $INCOMING_BRANCH"
           docker run --rm \
             -v $PWD:$PWD \
             -w $PWD \
@@ -79,4 +80,4 @@ jobs:
             -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
             pactfoundation/pact-cli:latest broker delete-branch \
             --pacticipant pactflow-consumer \
-            --branch $BRANCH_NAME
+            --branch $INCOMING_BRANCH
