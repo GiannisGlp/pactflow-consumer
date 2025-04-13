@@ -79,5 +79,4 @@ jobs:
             -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
             pactfoundation/pact-cli:latest broker delete-branch \
             --pacticipant pactflow-consumer \
-            --version $GITHUB_SHA \
             --branch $BRANCH_NAME
