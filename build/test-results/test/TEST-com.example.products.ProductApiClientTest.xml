@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.products.ProductApiClientTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-04-13T13:43:15.706Z" hostname="192.168.1.4" time="0.667">
+<testsuite name="com.example.products.ProductApiClientTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-04-13T19:01:51.226Z" hostname="192.168.1.4" time="0.053">
   <properties/>
-  <testcase name="createProductInvalidData()" classname="com.example.products.ProductApiClientTest" time="0.606"/>
-  <testcase name="getProduct()" classname="com.example.products.ProductApiClientTest" time="0.025"/>
+  <testcase name="createProductInvalidData()" classname="com.example.products.ProductApiClientTest" time="0.011"/>
+  <testcase name="getProduct()" classname="com.example.products.ProductApiClientTest" time="0.008"/>
   <testcase name="getProductInvalidId()" classname="com.example.products.ProductApiClientTest" time="0.007"/>
-  <testcase name="getProducts()" classname="com.example.products.ProductApiClientTest" time="0.008"/>
-  <testcase name="getProductNotFound()" classname="com.example.products.ProductApiClientTest" time="0.007"/>
-  <testcase name="createProduct()" classname="com.example.products.ProductApiClientTest" time="0.01"/>
-  <system-out><![CDATA[Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
-16:43:14.621 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.products.ProductApiClientTest]: ProductApiClientTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-16:43:14.680 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.products.Application for test class com.example.products.ProductApiClientTest
+  <testcase name="getProducts()" classname="com.example.products.ProductApiClientTest" time="0.007"/>
+  <testcase name="getProductNotFound()" classname="com.example.products.ProductApiClientTest" time="0.005"/>
+  <testcase name="createProduct()" classname="com.example.products.ProductApiClientTest" time="0.011"/>
+  <system-out><![CDATA[2025-04-13T22:01:50.964+03:00  INFO 17347 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.products.ProductApiClientTest]: ProductApiClientTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-04-13T22:01:50.970+03:00  INFO 17347 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.products.Application for test class com.example.products.ProductApiClientTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -20,25 +19,25 @@
 
  :: Spring Boot ::                (v3.4.3)
 
-2025-04-13T16:43:14.837+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:14.849+03:00  INFO 76546 --- [    Test worker] c.m.w.spring.WireMockContextCustomizer   : Configuring WireMockServer with name 'wiremock-service-name' on port: 0
-2025-04-13T16:43:15.188+03:00  INFO 76546 --- [    Test worker] c.m.w.spring.WireMockContextCustomizer   : Started WireMockServer with name 'wiremock-service-name':http://localhost:56910
-2025-04-13T16:43:15.188+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:15.202+03:00  INFO 76546 --- [    Test worker] c.example.products.ProductApiClientTest  : Starting ProductApiClientTest using Java 23.0.2 with PID 76546 (started by vanonatobaidze in /Users/vanonatobaidze/projects/pactflow/pactflow-consumer)
-2025-04-13T16:43:15.203+03:00  INFO 76546 --- [    Test worker] c.example.products.ProductApiClientTest  : No active profile set, falling back to 1 default profile: "default"
-2025-04-13T16:43:15.685+03:00  INFO 76546 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-04-13T16:43:15.686+03:00  INFO 76546 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-04-13T16:43:15.687+03:00  INFO 76546 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2025-04-13T16:43:15.699+03:00  INFO 76546 --- [    Test worker] c.example.products.ProductApiClientTest  : Started ProductApiClientTest in 0.962 seconds (process running for 1.575)
-2025-04-13T16:43:15.707+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:15.708+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.298+03:00  INFO 76546 --- [qtp395257482-44] WireMock                                 : Request received:
+2025-04-13T22:01:51.002+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.003+03:00  INFO 17347 --- [    Test worker] c.m.w.spring.WireMockContextCustomizer   : Configuring WireMockServer with name 'wiremock-service-name' on port: 0
+2025-04-13T22:01:51.013+03:00  INFO 17347 --- [    Test worker] c.m.w.spring.WireMockContextCustomizer   : Started WireMockServer with name 'wiremock-service-name':http://localhost:59057
+2025-04-13T22:01:51.013+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.018+03:00  INFO 17347 --- [    Test worker] c.example.products.ProductApiClientTest  : Starting ProductApiClientTest using Java 23.0.2 with PID 17347 (started by vanonatobaidze in /Users/vanonatobaidze/projects/pactflow/pactflow-consumer)
+2025-04-13T22:01:51.018+03:00  INFO 17347 --- [    Test worker] c.example.products.ProductApiClientTest  : No active profile set, falling back to 1 default profile: "default"
+2025-04-13T22:01:51.217+03:00  INFO 17347 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-04-13T22:01:51.217+03:00  INFO 17347 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-04-13T22:01:51.217+03:00  INFO 17347 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-04-13T22:01:51.224+03:00  INFO 17347 --- [    Test worker] c.example.products.ProductApiClientTest  : Started ProductApiClientTest in 0.249 seconds (process running for 3.596)
+2025-04-13T22:01:51.227+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.228+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.235+03:00  INFO 17347 --- [qtp405654827-57] WireMock                                 : Request received:
 127.0.0.1 - POST /products
 
 Accept: [application/json]
 Content-Length: [41]
 Content-Type: [application/json; charset=UTF-8]
-Host: [localhost:56910]
+Host: [localhost:59057]
 Connection: [keep-alive]
 User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
 Accept-Encoding: [gzip,deflate]
@@ -56,15 +55,15 @@ Matched response definition:
 Response:
 HTTP/1.1 400
 Content-Type: [application/json]
-Matched-Stub-Id: [a534f8e9-818d-4e0b-af4e-028c1c88fc88]
+Matched-Stub-Id: [7c909775-8ddf-4e24-b4ab-a19f59eee5b0]
 
-2025-04-13T16:43:16.314+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.315+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.318+03:00  INFO 76546 --- [qtp395257482-38] WireMock                                 : Request received:
+2025-04-13T22:01:51.238+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.239+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.242+03:00  INFO 17347 --- [qtp405654827-51] WireMock                                 : Request received:
 127.0.0.1 - GET /product/10
 
 Accept: [application/json]
-Host: [localhost:56910]
+Host: [localhost:59057]
 Connection: [keep-alive]
 User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
 Accept-Encoding: [gzip,deflate]
@@ -83,15 +82,15 @@ Matched response definition:
 Response:
 HTTP/1.1 200
 Content-Type: [application/json]
-Matched-Stub-Id: [22fe7cd3-2613-4dac-86c2-9abe99988fb2]
+Matched-Stub-Id: [d096c92e-8a59-471f-9701-ee3c434a9e69]
 
-2025-04-13T16:43:16.340+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.340+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.343+03:00  INFO 76546 --- [qtp395257482-43] WireMock                                 : Request received:
+2025-04-13T22:01:51.247+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.248+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.251+03:00  INFO 17347 --- [qtp405654827-56] WireMock                                 : Request received:
 127.0.0.1 - GET /product/invalid-id
 
 Accept: [application/json]
-Host: [localhost:56910]
+Host: [localhost:59057]
 Connection: [keep-alive]
 User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
 Accept-Encoding: [gzip,deflate]
@@ -109,15 +108,15 @@ Matched response definition:
 Response:
 HTTP/1.1 400
 Content-Type: [application/json]
-Matched-Stub-Id: [723d2077-670c-49f9-85ce-224ed34e533e]
+Matched-Stub-Id: [351f82cb-9cde-4c6e-acc9-c5e59eebfe4c]
 
-2025-04-13T16:43:16.347+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.348+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.351+03:00  INFO 76546 --- [qtp395257482-42] WireMock                                 : Request received:
+2025-04-13T22:01:51.255+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.256+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.259+03:00  INFO 17347 --- [qtp405654827-55] WireMock                                 : Request received:
 127.0.0.1 - GET /products
 
 Accept: [application/json]
-Host: [localhost:56910]
+Host: [localhost:59057]
 Connection: [keep-alive]
 User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
 Accept-Encoding: [gzip,deflate]
@@ -136,15 +135,15 @@ Matched response definition:
 Response:
 HTTP/1.1 200
 Content-Type: [application/json]
-Matched-Stub-Id: [90295f05-e1e0-47ab-b294-e7b63b93da89]
+Matched-Stub-Id: [288c701d-044e-40c6-ae24-3c6966b27fca]
 
-2025-04-13T16:43:16.356+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.357+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.360+03:00  INFO 76546 --- [qtp395257482-43] WireMock                                 : Request received:
+2025-04-13T22:01:51.263+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.263+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.266+03:00  INFO 17347 --- [qtp405654827-56] WireMock                                 : Request received:
 127.0.0.1 - GET /product/999
 
 Accept: [application/json]
-Host: [localhost:56910]
+Host: [localhost:59057]
 Connection: [keep-alive]
 User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
 Accept-Encoding: [gzip,deflate]
@@ -162,17 +161,17 @@ Matched response definition:
 Response:
 HTTP/1.1 404
 Content-Type: [application/json]
-Matched-Stub-Id: [95a8cc29-7290-4400-8483-75a84fdc101c]
+Matched-Stub-Id: [77dbbbc6-b9dd-4050-96f6-4a1753ecf1bc]
 
-2025-04-13T16:43:16.364+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.364+03:00  INFO 76546 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
-2025-04-13T16:43:16.369+03:00  INFO 76546 --- [qtp395257482-42] WireMock                                 : Request received:
+2025-04-13T22:01:51.270+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.270+03:00  INFO 17347 --- [    Test worker] c.maciejwalkowiak.wiremock.spring.Store  : Resolving store from context: application
+2025-04-13T22:01:51.276+03:00  INFO 17347 --- [qtp405654827-55] WireMock                                 : Request received:
 127.0.0.1 - POST /products
 
 Accept: [application/json]
 Content-Length: [53]
 Content-Type: [application/json; charset=UTF-8]
-Host: [localhost:56910]
+Host: [localhost:59057]
 Connection: [keep-alive]
 User-Agent: [Apache-HttpClient/4.5.14 (Java/23.0.2)]
 Accept-Encoding: [gzip,deflate]
@@ -191,15 +190,8 @@ Matched response definition:
 Response:
 HTTP/1.1 200
 Content-Type: [application/json]
-Matched-Stub-Id: [c52a05d5-c429-4b7d-b724-11f23a66a41f]
+Matched-Stub-Id: [b3de22fa-1c1a-4d13-93b7-b7865d34eae4]
 
 ]]></system-out>
-  <system-err><![CDATA[Apr 13, 2025 4:43:14 PM se.bjurr.wiremockpact.wiremockpactlib.api.WireMockPactApi clearAllSaved
-INFO: Clearing PACT JSON in /Users/vanonatobaidze/projects/pactflow/pactflow-consumer/build/pacts
-Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
-WARNING: A Java agent has been loaded dynamically (/Users/vanonatobaidze/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.15.11/a38b16385e867f59a641330f0362ebe742788ed8/byte-buddy-agent-1.15.11.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>
