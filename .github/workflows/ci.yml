@@ -80,4 +80,4 @@ jobs:
             pactfoundation/pact-cli:latest broker delete-branch \
             --pacticipant pactflow-consumer \
             --version $GITHUB_SHA \
-            --tag $BRANCH_NAME
+            --branch $BRANCH_NAME
