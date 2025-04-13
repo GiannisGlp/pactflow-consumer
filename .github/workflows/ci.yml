@@ -3,8 +3,10 @@ name: CI Pipeline
 on:
   pull_request:
     branches:
-      - main
       - develop
+      - main
+    types:
+      - closed
   push:
     branches:
       - main
@@ -57,21 +59,20 @@ jobs:
   delete-pactflow-branch:
     name: Delete Incoming PactFlow Branch
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') && github.event.head_commit.message == 'Merge pull request' }}
+    if: ${{ github.event.pull_request.merged == true }}
 
     steps:
       # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Extract and delete the incoming branch
+      # Delete PactFlow branch
       - name: Delete Incoming PactFlow Branch
         env:
           PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
           PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
         run: |
-          # Extract the incoming branch name from the pull request event
-          INCOMING_BRANCH=${{ needs.capture-incoming-branch.outputs.incoming-branch }}
+          BRANCH_NAME=${{ github.head_ref || github.ref_name }}
           echo "Deleting incoming branch on PactFlow: $INCOMING_BRANCH"
           docker run --rm \
             -v $PWD:$PWD \
