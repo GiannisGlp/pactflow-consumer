@@ -1,12 +1,14 @@
 name: CI Pipeline
 
 on:
- pull_request:
+  pull_request:
+    branches:
+      - develop
+      - main
+  push:
     branches:
       - main
- push:
-    branches:
-      - main
+      - develop
 
 jobs:
   test-and-publish:
@@ -51,64 +53,3 @@ jobs:
             -e PACT_BROKER_BASE_URL=$PACT_BROKER_BASE_URL \
             -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
             pactfoundation/pact-cli:latest publish build/pacts --consumer-app-version $GITHUB_SHA --branch $BRANCH_NAME
-
-  can-i-deploy:
-    name: Can I Deploy
-    needs: test-and-publish
-    runs-on: ubuntu-latest
-
-    steps:
-      # Checkout the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Check if the consumer can be deployed
-      - name: Can I Deploy
-        env:
-          PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
-          PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
-        run: |
-          docker run --rm \
-            -v $PWD:$PWD \
-            -w $PWD \
-            -e PACT_BROKER_BASE_URL=$PACT_BROKER_BASE_URL \
-            -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
-            pactfoundation/pact-cli:latest broker can-i-deploy \
-            --pacticipant pactflow-consumer \
-            --version $GITHUB_SHA \
-            --to-environment production
-
-  record-deployment:
-    name: Record Deployment
-    needs: can-i-deploy
-    runs-on: ubuntu-latest
-
-    steps:
-      # Checkout the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-    # Debug Record Deployment
-      - name: Debug Record Deployment
-        run: |
-         echo "PACT_BROKER_BASE_URL=${{ secrets.PACT_BROKER_BASE_URL }}"
-         echo "PACT_BROKER_TOKEN is set"
-         echo "PACTICIPANT=pactflow-consumer"
-         echo "VERSION=$GITHUB_SHA"
-         echo "ENVIRONMENT=production"
-
-      # Record deployment in Pact Broker
-      - name: Record Deployment
-        env:
-          PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
-          PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
-        run: |
-          docker run --rm \
-            -v $PWD:$PWD \
-            -w $PWD \
-            -e PACT_BROKER_BASE_URL=$PACT_BROKER_BASE_URL \
-            -e PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN \
-            pactfoundation/pact-cli:latest broker record-deployment \
-            --pacticipant pactflow-consumer \
-            --version $GITHUB_SHA \
-            --environment production

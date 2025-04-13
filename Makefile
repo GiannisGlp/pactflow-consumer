@@ -100,6 +100,15 @@ create_or_update_github_webhook:
 test_github_webhook:
 	@curl -v -X POST ${PACT_BROKER_BASE_URL}/webhooks/${GITHUB_WEBHOOK_UUID}/execute -H "Authorization: Bearer ${PACT_BROKER_TOKEN}"
 
+delete_branch:
+	@if [ -z "${BRANCH_NAME}" ]; then \
+	  echo "Error: BRANCH_NAME is not set. Please provide the branch name to delete."; \
+	  exit 1; \
+	fi
+	@"${PACT_CLI}" broker delete-branch \
+	  --pacticipant ${PACTICIPANT} \
+	  --branch ${BRANCH_NAME}
+
 ## ======================
 ## Travis CI set up tasks
 ## ======================

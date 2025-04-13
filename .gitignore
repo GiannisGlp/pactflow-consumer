@@ -1,0 +1,39 @@
+# Gradle files
+.gradle/
+build/
+
+.gradle/8.13/fileHashes/
+# Java files
+*.class
+*.jar
+*.war
+*.ear
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+out/
+
+# VS Code files
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Pact-related files
+pacts/
+*.pact
+
+# Dependency caches
+.gradle/
+build/
+!gradle-wrapper.jar
+
+# Generated files
+bin/
+gen/
